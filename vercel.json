@@ -1,37 +1,4 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "src/**/*.{js,ts,jsx,tsx}",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "public/**/*",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/login",
-        "dest": "/index.html"
-      },
-      {
-        "src": "/signup",
-        "dest": "/index.html"
-      },
-      {
-        "src": "/movies/:id",
-        "dest": "/index.html"
-      },
-      {
-        "src": "/favorites",
-        "dest": "/index.html"
-      },
-      {
-        "src": "/",
-        "dest": "/index.html"
-      }
-    ],
     "rewrites": [
       {
         "source": "/(.*)",
