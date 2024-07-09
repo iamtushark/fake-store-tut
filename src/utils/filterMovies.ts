@@ -1,6 +1,8 @@
 import Movie from "../Interfaces/Movies/movie";
 
 export const filterMovies = (movies: Movie[], searchQuery: string): Movie[] => {
+  // console.log(searchQuery, movies);
+  
   if (!searchQuery || searchQuery === "") {
     return movies;
   }
@@ -8,7 +10,7 @@ export const filterMovies = (movies: Movie[], searchQuery: string): Movie[] => {
   return movies.filter(movie => {
     const titleLower = movie.Title.toLowerCase();
     const queryLower = searchQuery.toLowerCase();
-
+    
     // Check for exact match or if the query is a substring of the title
     return titleLower === queryLower || titleLower.includes(queryLower);
   }).sort((a, b) => {

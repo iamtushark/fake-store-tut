@@ -64,7 +64,7 @@ const MovieDetail: React.FC = () => {
       dispatch(fetchRatings(id));
       dispatch(fetchComments(id));
     }
-  }, [dispatch, id]);
+  }, [id]);
 
   if (!movie || !id) {
     return <Typography variant="h6">Movie not found</Typography>;
@@ -220,7 +220,8 @@ const MovieDetail: React.FC = () => {
           </CardContent>
         )}
         <CardContent>
-          <Typography variant="h6">Ratings and Comments</Typography>
+          {ratings[id] &&
+          <Typography variant="h6">Ratings and Comments</Typography>}
           {ratings[id] &&
             Object.keys(ratings[id]).map((userId, idx) => (
               <Box

@@ -74,7 +74,7 @@ const Movies: React.FC = () => {
   return (
     <>
       <CommonBox>
-        <Box>
+        <Box sx={{marginBottom : "2vh"}}>
         <TextField
           label="Search Movies"
           variant="outlined"
