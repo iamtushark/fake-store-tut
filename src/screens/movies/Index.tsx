@@ -73,7 +73,13 @@ const Movies: React.FC = () => {
 
   return (
     <>
-      <CommonBox>
+      <Box padding={2}
+      sx={{
+        minHeight: "90vh",
+        backgroundColor: "#f0f0f0",
+        alignItems: "center",
+        alignContent : "center"
+      }}>
         <Box sx={{marginBottom : "2vh"}}>
         <TextField
           label="Search Movies"
@@ -98,7 +104,7 @@ const Movies: React.FC = () => {
             </CommonGrid>
           ))}
         </CommonGrid>
-      </CommonBox>
+      </Box>
     </>
   );
 };

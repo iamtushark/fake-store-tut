@@ -36,6 +36,7 @@ import { toast } from "react-toastify";
 import { useAppDispatch } from "../../app/hooks";
 import dummyData from "../../assets/data/movies.json";
 import { Ratings } from "../../utils/dbOperations/interfaces";
+import CommonBox from "../../components/Common/CommonBox";
 
 const getMovieById = (id: string) => {
   return dummyData.find((movie) => movie.imdbID === id);
@@ -94,16 +95,18 @@ const MovieDetail: React.FC = () => {
       setRating(undefined);
       setComment("");
     } else {
-      if(!user){
-      toast.error("Please log in and try again");}
-      else{
-      toast.error("Please provide both, rating and a comment");}
+      if (!user) {
+        toast.error("Please log in and try again");
+      }
+      else {
+        toast.error("Please provide both, rating and a comment");
+      }
     }
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4 }}>
-      <Card>
+    <CommonBox>
+      <Card sx={{ mt: 4, maxWidth: "md", alignItems: "center" }}>
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12} md={4}>
@@ -221,7 +224,7 @@ const MovieDetail: React.FC = () => {
         )}
         <CardContent>
           {ratings[id] &&
-          <Typography variant="h6">Ratings and Comments</Typography>}
+            <Typography variant="h6">Ratings and Comments</Typography>}
           {ratings[id] &&
             Object.keys(ratings[id]).map((userId, idx) => (
               <Box
@@ -243,7 +246,7 @@ const MovieDetail: React.FC = () => {
             ))}
         </CardContent>
       </Card>
-    </Container>
+    </CommonBox>
   );
 };
 

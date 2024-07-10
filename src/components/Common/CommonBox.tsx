@@ -12,7 +12,10 @@ const CommonBox: React.FC<CommonBoxProps> = ({ children, ...props }) => {
         minHeight: "90vh",
         backgroundColor: "#f0f0f0",
         alignItems: "center",
+        display : "flex",
+        justifyContent : "center",
         ...props.sx,
+        // alignContent : "center",
       }}
     >
       {children}
