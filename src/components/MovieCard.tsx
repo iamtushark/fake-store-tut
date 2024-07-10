@@ -23,7 +23,7 @@ import {
 interface Props {
   id: string;
   movie: MovieProps;
-  liked : boolean;
+  liked: boolean;
 }
 
 const MovieCard: React.FC<Props> = ({ id, movie, liked }) => {
@@ -34,7 +34,7 @@ const MovieCard: React.FC<Props> = ({ id, movie, liked }) => {
   };
   const dispatch = useAppDispatch();
   const user = useSelector(selectLoggedInUser);
-  
+
   const [isLiked, setIsLiked] = useState(liked);
 
   const handleFavoriteClick = () => {
@@ -52,7 +52,14 @@ const MovieCard: React.FC<Props> = ({ id, movie, liked }) => {
   };
 
   return (
-    <Card>
+    <Card sx={{
+      height: "auto",
+      aspectRatio: "auto",
+      transition: "transform 0.2s ease-in-out",
+      "&:hover": {
+        transform: "scale(1.02)",
+      },
+    }}>
       <CardHeader
         title={
           <Typography variant="body2" component="h1">
@@ -67,9 +74,16 @@ const MovieCard: React.FC<Props> = ({ id, movie, liked }) => {
           alt={movie.Title}
           onError={onErrorLoadingImage}
           image={movie.Poster}
+          // height="450"
+          style={{
+            height: "450px", // Default height for smaller screens
+            objectFit: "cover",
+          }}
           sx={{
-            width: "100%",
-            maxHeight: 500,
+            "@media (min-width: 600px)": {
+              height: "100vh", // Adjust for larger screens
+              maxWidth: "100%",
+            },
           }}
         />
       </MuiLink>

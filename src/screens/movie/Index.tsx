@@ -37,6 +37,7 @@ import { useAppDispatch } from "../../app/hooks";
 import dummyData from "../../assets/data/movies.json";
 import { Ratings } from "../../utils/dbOperations/interfaces";
 import CommonBox from "../../components/Common/CommonBox";
+import BackButton from "../../components/Common/CommonBackButton";
 
 const getMovieById = (id: string) => {
   return dummyData.find((movie) => movie.imdbID === id);
@@ -104,9 +105,10 @@ const MovieDetail: React.FC = () => {
     }
   };
 
-  return (
+  return (<>
     <CommonBox>
-      <Card sx={{ mt: 4, maxWidth: "md", alignItems: "center" }}>
+      <Card sx={{maxWidth: "md", alignItems: "center"}}>
+        {/* <BackButton/> */}
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12} md={4}>
@@ -247,7 +249,7 @@ const MovieDetail: React.FC = () => {
         </CardContent>
       </Card>
     </CommonBox>
-  );
+    </>);
 };
 
 export default MovieDetail;

@@ -73,9 +73,10 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "black", height: "10vh" }}>
-      <Toolbar sx={{ flexGrow: 1 }}>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+    <AppBar position="sticky" sx={{ backgroundColor: "black", height: "auto" }}>
+      <Toolbar sx={{ flexGrow: 1, cursor: "pointer" }}>
+        
+        <Typography variant="h6" sx={{ flexGrow: 1 }} onClick={() => navigate("/")} >
           FakeMovies
         </Typography>
         <IconButton
