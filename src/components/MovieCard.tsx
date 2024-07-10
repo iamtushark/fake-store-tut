@@ -62,7 +62,7 @@ const MovieCard: React.FC<Props> = ({ id, movie, liked }) => {
     }}>
       <CardHeader
         title={
-          <Typography variant="body2" component="h1">
+          <Typography variant="h6" component="h6">
             {movie.Title}
           </Typography>
         }
