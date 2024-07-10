@@ -37,6 +37,7 @@ const Favorites: React.FC = () => {
 
     fetchMovies();
   }, [likes]);
+  console.log(likes)
 
   const isMovieLiked = (id: string) => {
     return user ? !!likes[user]?.has(id) : false;

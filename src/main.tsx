@@ -4,8 +4,12 @@ import { Provider } from "react-redux";
 import App from "./App";
 import { store } from "./app/store";
 import "./index.css";
+import { enableMapSet } from "immer";
+
 
 const container = document.getElementById("root");
+enableMapSet();
+
 
 if (container) {
   const root = createRoot(container);

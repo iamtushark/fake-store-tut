@@ -39,6 +39,7 @@ const Navbar: React.FC = () => {
     const userId = localStorage.getItem(localStorageKeys.user);
     console.log("userid", userId);
     if (!userId) {
+      dispatch(fetchLikes());
       return;
     }
     dispatch(setUser(userId));

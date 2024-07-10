@@ -23,7 +23,10 @@ export const likesSlice = createAppSlice({
   initialState,
   reducers: create => ({
     fetchLikes: create.asyncThunk(
-      async (userId: string) => {
+      async (userId?: string) => {
+        if(!userId){
+          return null;
+        }
         const likes = await getLikes(userId);
         return { userId, likes };
       },
@@ -33,10 +36,11 @@ export const likesSlice = createAppSlice({
         },
         fulfilled: (
           state,
-          action: PayloadAction<{ userId: string; likes: Likes }>,
+          action: PayloadAction<{ userId: string; likes: Likes } | null>,
         ) => {
           state.status = "succeeded";
-          state.likes[action.payload.userId] = action.payload.likes;
+          if (action.payload){
+          state.likes[action.payload.userId] = action.payload.likes;}
         },
         rejected: state => {
           state.status = "failed";
@@ -55,10 +59,13 @@ export const likesSlice = createAppSlice({
         ) => {
           const { userId, movieId } = action.payload;
           if (!state.likes[userId]) {
-            state.likes[userId] = new Set<string>();
+            console.log("hit1")
+            state.likes[userId] = new Set<string>().add(movieId);
           }
+          else{
+          console.log("hit2")
           state.likes[userId].add(movieId);
-        },
+        }},
       },
     ),
     removeExistingLike: create.asyncThunk(

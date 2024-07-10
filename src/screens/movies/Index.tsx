@@ -46,8 +46,8 @@ const Movies: React.FC = () => {
   };
 
   const filteredMovies = filterMovies(movies, searchQuery);
+  console.log(likes);
 
-  console.log(status);
   if (loading || status === "idle" || status === "loading") {
     return (
       <CommonBox
